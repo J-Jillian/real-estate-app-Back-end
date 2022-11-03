@@ -2,10 +2,10 @@
   "name": "real-estate-inmex",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node app.js",
+    "devStart": "nodemon app.js"
   },
   "keywords": [
     "Jillian"
@@ -13,6 +13,7 @@
   "author": "Jillian",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.6.6",

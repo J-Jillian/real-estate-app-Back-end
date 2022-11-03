@@ -1,23 +1,29 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const cors = require("cors");
+
 require("dotenv").config();
 const source = process.env.MONGODB_URI;
 
 const PropertiesModel = require("./models/Properties");
 
 app.use(express.json());
+app.use(cors());
 
 mongoose.connect(source, {
   useNewUrlParser: true,
 });
 
 //Create a new Route
-app.get("/", async (req, res) => {
+app.post("/insert", async (req, res) => {
+  const propertityId = req.body.propertityId;
+  const title = req.body.title;
+
   res.end("Bienvenido al servidor Bakcend...");
   const properties = new PropertiesModel({
-    PropertyID: 1,
-    Title: "Segunda casa",
+    PropertityId: propertityId,
+    Title: title,
   });
   try {
     await properties.save();
