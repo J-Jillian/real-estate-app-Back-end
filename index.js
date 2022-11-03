@@ -33,6 +33,15 @@ app.post("/insert", async (req, res) => {
   }
 });
 
+app.get("/read", async (req, res) => {
+  PropertiesModel.find({}, (err, result) => {
+    if (err) {
+      res.send(err);
+    }
+    res.send(result);
+  });
+});
+
 // app.get("/", (req, res) => {
 //   res.end("Bienvenido al servidor Bakcend...");
 // });
